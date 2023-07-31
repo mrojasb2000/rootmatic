@@ -10,3 +10,16 @@ def test_room_model_init():
     assert room.price == 10
     assert room.longitude == -0.09998975
     assert room.lantitude == 51.75436293
+
+def test_room_model_to_dict():
+    init_dict = {
+        "code": uuid.uuid4(),
+        "size": 200,
+        "price":  10,
+        "longitude": -0.09998975,
+        "lantitude": 51.75436293,
+    }
+
+    room = Room.from_dict(init_dict)
+
+    assert room.to_dict() == init_dict
